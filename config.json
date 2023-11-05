@@ -1,0 +1,22 @@
+{
+    "modules": [
+        "splash",
+        "intro",
+        "login",
+        "register",
+        "forgot_passowrd",
+        "change_password",
+        "dashboard",
+        "main_navigation",
+        "profile",
+        "calendar",
+        "birthday",
+        "debut",
+        "vtuber_detail"
+    ],
+    "module_directory_name": "module",
+    "experimental_mode": false,
+    "learning_mode": true,
+    "unfreezed": true,
+    "use_cubit": false
+}
