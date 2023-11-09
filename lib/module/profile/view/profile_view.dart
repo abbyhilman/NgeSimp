@@ -17,25 +17,37 @@ class ProfileView extends StatefulWidget {
       ),
       body: SingleChildScrollView(
         child: Container(
+          width: MediaQuery.of(context).size.width,
           padding: const EdgeInsets.all(10.0),
           child: Column(
             children: [
-              ListTile(
-                title: const Text("Change Password"),
-                trailing: const Icon(
-                  Icons.chevron_right,
-                  size: 24.0,
-                ),
-                onTap: () => Get.to(const ChangePasswordView()),
+              const CircleAvatar(
+                backgroundColor: Colors.white,
+                radius: 64,
+                backgroundImage: AssetImage("assets/image/profile_dummy.png"),
               ),
-              ListTile(
-                title: const Text("Favorite Vtuber"),
-                trailing: const Icon(
-                  Icons.chevron_right,
-                  size: 24.0,
-                ),
-                onTap: () {},
+              const SizedBox(
+                height: 4.0,
               ),
+              const Text(
+                "ByHil",
+                style: TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(
+                height: 20.0,
+              ),
+              for (var item in controller.menuItems)
+                ListTile(
+                  title: Text(item['label']),
+                  trailing: const Icon(
+                    Icons.chevron_right,
+                    size: 24.0,
+                  ),
+                  onTap: () => Get.to(item['view']),
+                ),
             ],
           ),
         ),

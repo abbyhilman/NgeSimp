@@ -12,7 +12,12 @@
         "calendar",
         "birthday",
         "debut",
-        "vtuber_detail"
+        "vtuber_detail",
+        "logout",
+        "faq",
+        "help",
+        "edit_profile",
+        "favorite_vtuber"
     ],
     "module_directory_name": "module",
     "experimental_mode": false,

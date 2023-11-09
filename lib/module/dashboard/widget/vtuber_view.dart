@@ -56,7 +56,7 @@ class VtuberView extends StatelessWidget {
                           backgroundColor: Colors.grey[200],
                           child: const Icon(
                             Icons.favorite,
-                            color: Colors.red,
+                            color: Colors.grey,
                             size: 16.0,
                           ),
                         ),

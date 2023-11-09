@@ -15,36 +15,34 @@ class CalendarView extends StatefulWidget {
         ),
         actions: const [],
       ),
-      body: SingleChildScrollView(
+      body: SafeArea(
         child: Container(
-          padding: const EdgeInsets.all(10.0),
-          child: Column(
-            children: [
-              GridView.builder(
-                padding: EdgeInsets.zero,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  childAspectRatio: 1.0 / 1.2,
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 10,
-                  crossAxisSpacing: 10,
-                ),
-                itemCount: controller.categories.length,
-                shrinkWrap: true,
-                physics: const ScrollPhysics(),
-                itemBuilder: (BuildContext context, int index) {
-                  var item = controller.categories[index];
-                  return InkWell(
-                    onTap: () {
-                      if (item['id'] == 1) {
-                        Get.to(const BirthdayView());
-                      } else {
-                        Get.to(const DebutView());
-                      }
-                    },
-                    child: Expanded(
-                      flex: 1,
+          padding: const EdgeInsets.all(20.0),
+          color: Colors.white,
+          child: GridView.builder(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              childAspectRatio: 1.0 / 1.2,
+              crossAxisCount: 2,
+              mainAxisSpacing: 10,
+              crossAxisSpacing: 10,
+            ),
+            itemCount: controller.categories.length,
+            shrinkWrap: true,
+            physics: const ScrollPhysics(),
+            itemBuilder: (BuildContext context, int index) {
+              var item = controller.categories[index];
+              return InkWell(
+                onTap: () {
+                  if (item['id'] == 1) {
+                    Get.to(const BirthdayView());
+                  } else {
+                    Get.to(const DebutView());
+                  }
+                },
+                child: Column(
+                  children: [
+                    Expanded(
                       child: Container(
-                        height: 160.0,
                         decoration: BoxDecoration(
                             color: Colors.white,
                             boxShadow: [
@@ -78,9 +76,9 @@ class CalendarView extends StatefulWidget {
                                       color: Colors.black,
                                     ),
                                   ),
-                                  const SizedBox(
-                                    height: 5.0,
-                                  ),
+                                  // const SizedBox(
+                                  //   height: 5.0,
+                                  // ),
                                 ],
                               ),
                             )
@@ -88,10 +86,10 @@ class CalendarView extends StatefulWidget {
                         ),
                       ),
                     ),
-                  );
-                },
-              ),
-            ],
+                  ],
+                ),
+              );
+            },
           ),
         ),
       ),

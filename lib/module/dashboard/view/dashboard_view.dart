@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:vtuber_list/core.dart';
-import 'package:vtuber_list/module/dashboard/widget/vtuber_view.dart';
 
 class DashboardView extends StatefulWidget {
   const DashboardView({Key? key}) : super(key: key);
@@ -33,11 +32,14 @@ class DashboardView extends StatefulWidget {
                           fontSize: 16.0, fontWeight: FontWeight.bold),
                     ),
                     const Spacer(),
-                    Image.asset(
-                      "assets/image/profile_dummy.png",
-                      width: 32.0,
-                      height: 32.0,
-                      fit: BoxFit.fill,
+                    InkWell(
+                      onTap: () => showImagePopup(context),
+                      child: Image.asset(
+                        "assets/image/profile_dummy.png",
+                        width: 32.0,
+                        height: 32.0,
+                        fit: BoxFit.fill,
+                      ),
                     ),
                     const SizedBox(
                       width: 15.0,
@@ -91,6 +93,57 @@ class DashboardView extends StatefulWidget {
           ),
         ),
       ),
+    );
+  }
+
+  void showImagePopup(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          backgroundColor: Colors.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0), // Set border radius
+          ),
+          content: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(
+                  10.0), // Optional: Set border radius for the image container
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 3,
+                  blurRadius: 5,
+                  offset: const Offset(0, 3), // Optional: Add a subtle shadow
+                ),
+              ],
+            ),
+            width: 200.0,
+            height: 200.0,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(10.0),
+              child: Image.asset(
+                "assets/image/profile_dummy.png",
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text(
+                "Close",
+                style: TextStyle(
+                  fontSize: 14.0,
+                  color: Colors.black,
+                ),
+              ),
+            ),
+          ],
+        );
+      },
     );
   }
 
