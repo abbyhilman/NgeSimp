@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:vtuber_list/core.dart';
-import 'package:vtuber_list/core/theme/theme_config.dart';
-import 'package:vtuber_list/core/widget/button/button.dart';
 
 class IntroView extends StatefulWidget {
   const IntroView({Key? key}) : super(key: key);
@@ -81,7 +79,7 @@ class IntroView extends StatefulWidget {
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    const LoginView()),
+                                                    const MainNavigationView()),
                                           );
                                         },
                                       )),

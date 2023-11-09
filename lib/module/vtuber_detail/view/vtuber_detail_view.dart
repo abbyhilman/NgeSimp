@@ -154,7 +154,11 @@ class VtuberDetailView extends StatefulWidget {
                             color: Colors.white,
                             shadowColor: Colors.black,
                             elevation: 0.8,
-                            child: Center(child: Text('Dummy Card Text')),
+                            child: Center(
+                                child: Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Text('Buat Tempat Video'),
+                            )),
                           ),
                         ),
                       ),

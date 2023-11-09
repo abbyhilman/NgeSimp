@@ -60,8 +60,10 @@ class DashboardView extends StatefulWidget {
                     ],
                   ),
                   child: TextField(
+                    controller: controller.searchController,
+                    onChanged: (value) => controller.filterSearchResults(value),
                     decoration: InputDecoration(
-                      hintText: 'Search',
+                      hintText: 'Search Name',
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8.0),
                         borderSide: BorderSide(
@@ -95,6 +97,8 @@ class DashboardView extends StatefulWidget {
       ),
     );
   }
+
+  // Function to filter search results
 
   void showImagePopup(BuildContext context) {
     showDialog(

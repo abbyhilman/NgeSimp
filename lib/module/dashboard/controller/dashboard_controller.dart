@@ -9,6 +9,7 @@ class DashboardController extends State<DashboardView> {
   @override
   void initState() {
     instance = this;
+    searchListVtuber = vtuberlist;
     super.initState();
   }
 
@@ -17,6 +18,11 @@ class DashboardController extends State<DashboardView> {
 
   @override
   Widget build(BuildContext context) => widget.build(context, this);
+
+  // Controller for the search field
+  TextEditingController searchController = TextEditingController();
+
+  List<Map<String, dynamic>> searchListVtuber = [];
 
   List<Map<String, dynamic>> vtuberlist = [
     {
@@ -163,4 +169,22 @@ class DashboardController extends State<DashboardView> {
       "is_favorite": false,
     },
   ];
+
+  void filterSearchResults(String query) {
+    List<Map<String, dynamic>> results = [];
+    if (query.isEmpty) {
+      results = vtuberlist;
+    } else {
+      results = vtuberlist
+          .where((item) => item['vtuber_name']
+              .toString()
+              .toLowerCase()
+              .contains(query.toLowerCase()))
+          .toList();
+    }
+
+    setState(() {
+      searchListVtuber = results;
+    });
+  }
 }

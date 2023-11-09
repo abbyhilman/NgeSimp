@@ -12,12 +12,12 @@ class MainNavigationView extends StatefulWidget {
    
     */
     return DefaultTabController(
-      length: 4,
+      length: 3,
       initialIndex: controller.selectedIndex,
       child: Scaffold(
         body: IndexedStack(
           index: controller.selectedIndex,
-          children: const [DashboardView(), CalendarView(), ProfileView()],
+          children: const [DashboardView(), CalendarView(), LoginView()],
         ),
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: controller.selectedIndex,

@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:vtuber_list/core.dart';
-import 'package:vtuber_list/core/theme/theme_config.dart';
-import 'package:vtuber_list/core/widget/button/button.dart';
-import 'package:vtuber_list/core/widget/formText/formText.dart';
-import '../controller/register_controller.dart';
 
 class RegisterView extends StatefulWidget {
   const RegisterView({Key? key}) : super(key: key);
@@ -91,10 +87,7 @@ class RegisterView extends StatefulWidget {
             ),
             const Spacer(),
             InkWell(
-              onTap: () => Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => const LoginView()),
-              ),
+              onTap: () => Get.offAll(const MainNavigationView()),
               child: Text(
                 "I have an account",
                 style: TextStyle(

@@ -60,7 +60,7 @@ class LoginView extends StatefulWidget {
               ),
               QButton(
                 label: "Login",
-                onPressed: () => Get.offAll(const MainNavigationView()),
+                onPressed: () => Get.to(const ProfileView()),
                 color: Colors.white,
                 style: ElevatedButton.styleFrom(
                     backgroundColor: primaryColor,
@@ -85,7 +85,7 @@ class LoginView extends StatefulWidget {
               QButton(
                 label: "Sign Up",
                 disabled: true,
-                onPressed: () => Navigator.pushReplacement(
+                onPressed: () => Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => const RegisterView()),
                 ),
